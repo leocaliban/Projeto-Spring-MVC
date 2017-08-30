@@ -1,0 +1,32 @@
+.navbar-brand{
+	padding-bottom:50px;
+}
+img#icone{
+	position:absolute;
+	left: 730px;
+	top: 235px;
+	max-width:200px;
+    max-height:150px;
+    width: auto;
+    height: auto;
+}
+h1#cadastro{
+	text-align: center;
+	font-family:calibre;
+	font-weight: bold;
+	
+}
+.panel-default{
+	margin-left:10px;
+	margin-right:10px;
+}
+.panel-title{
+	font-family:arial;
+	font-weight: bold;
+	font-size: 15pt;
+	margin:0px;
+}
+.form-horizontal{
+	margin-left:400px;
+	margin-right:400px;
+}
