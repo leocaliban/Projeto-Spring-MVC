@@ -30,7 +30,7 @@ public class Titulo {
 	@Temporal(TemporalType.DATE)
 	private Date dataVencimento;
 	
-	/* formatando o valor para receber virgulas (mascara)*/
+	/* formatando o valor para receber virgulas */
 	@NumberFormat(pattern = "#,##0.00")
 	private BigDecimal valor;
 	

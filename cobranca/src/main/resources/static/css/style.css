@@ -30,3 +30,9 @@ h1#cadastro{
 	margin-left:400px;
 	margin-right:400px;
 }
+.alert{
+	background-color:#a5d6a3;
+	margin-left:410px;
+	margin-right:410px;
+	border-color: green;
+}
