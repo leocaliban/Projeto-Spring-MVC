@@ -12,6 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+
 /*criando uma entidade e seus atributos*/
 @Entity
 public class Titulo {
@@ -21,8 +24,14 @@ public class Titulo {
 	private Long codigo;
 	private String descricao;
 	
+	/*formatando a data que será salva no banco de dados*/
+	@DateTimeFormat(pattern="dd/MM/yyyy")
+	
 	@Temporal(TemporalType.DATE)
 	private Date dataVencimento;
+	
+	/* formatando o valor para receber virgulas (mascara)*/
+	@NumberFormat(pattern = "#,##0.00")
 	private BigDecimal valor;
 	
 	@Enumerated(EnumType.STRING)
