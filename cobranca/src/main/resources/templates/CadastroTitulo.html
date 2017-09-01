@@ -50,9 +50,9 @@
 						<label for="status" class="col-sm-2 control-label">Status</label>
 						<div class= "col-sm-4">
 							<select class="form-control" name="status">
-								
-								<option value="PENDENTE">Pendente</option>
-								<option value="RECEBIDO">Recebido</option>
+								<!-- usando o TL, o status será chamado diretamente da classe StatusTitulo, quando 
+								for preciso adicionar mais opções o inclusão será feita lá -->
+								<option th:each="status :${todosStatusTitulo}" th:value="${status}" th:text="${status.descricao}"></option>
 							</select>
 						</div>
 					</div>
@@ -65,7 +65,7 @@
 			</div>
 		</form>	
 		
-		<!-- criando uma janela de aviso pelo bootstrap vamos usar uma alerta de sucesso que permite ser fechada-->
+		<!-- criando uma alerta de aviso pelo bootstrap vamos usar uma alerta de sucesso -->
 		<div class="alert alert-sucess alert-dismissible" th:if="${!#strings.isEmpty(mensagem)}">
   			<strong th:text="${mensagem}"></strong> 
 		</div>
