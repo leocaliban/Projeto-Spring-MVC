@@ -35,6 +35,11 @@ public class TituloController {
 		return mv;
 	}
 	
+	@RequestMapping
+	public String pesquisar() {
+		return "PesquisaTitulos";
+	}
+	
 	/* os status de titulos será chamado pelo TL por aqui, que tem um array dos status*/
 	@ModelAttribute("todosStatusTitulo")
 	public List<StatusTitulo>todosStatusTitulo(){
