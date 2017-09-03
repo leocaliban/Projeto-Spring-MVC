@@ -11,7 +11,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
@@ -22,15 +27,21 @@ public class Titulo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
+	
+	@NotEmpty(message = "A Descrição É Obrigatória!")
+	@Size(max = 60, message = "Descrição Muito Longa, Máximo 60 Caracteres.")
 	private String descricao;
 	
 	/*formatando a data que será salva no banco de dados*/
+	@NotNull (message = "A Data É Obrigatória!")
 	@DateTimeFormat(pattern="dd/MM/yyyy")
-	
 	@Temporal(TemporalType.DATE)
 	private Date dataVencimento;
 	
 	/* formatando o valor para receber virgulas */
+	@DecimalMin (value = "1.00", message = "Valor Não Pode Ser Menor Que R$ 1!")
+	@DecimalMax (value = "999999.99", message = "Valor Não Pode Ser Maior Que R$ 999.999,99")
+	@NotNull(message = "O Valor É Obrigatório!")
 	@NumberFormat(pattern = "#,##0.00")
 	private BigDecimal valor;
 	

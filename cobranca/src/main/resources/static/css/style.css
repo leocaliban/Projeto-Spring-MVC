@@ -1,15 +1,7 @@
 .navbar-brand{
 	padding-bottom:50px;
 }
-img#icone{
-	position:absolute;
-	left: 730px;
-	top: 235px;
-	max-width:200px;
-    max-height:150px;
-    width: auto;
-    height: auto;
-}
+
 img#icone-pesquisa{
 	max-width:30px;
     max-height:30px;
@@ -26,6 +18,7 @@ h1#cadastro{
 	font-weight: bold;
 	
 }
+
 .panel-default{
 	margin-left:10px;
 	margin-right:10px;
@@ -40,12 +33,20 @@ h1#cadastro{
 	margin:0px 400px 0px 400px auto;
 }
 
-.alert{
+.alert.alert-sucess{
 	background-color:#a5d6a3;
 	margin-left:10px;
 	margin-right:10px;
 	margin-top:-15px;
 	border-color: green;
+	
+}
+.alert.alert-danger{
+	background-color:#fb9d9b;
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:-15px;
+	border-color: red;
 }
 
 .aw-link-panel{

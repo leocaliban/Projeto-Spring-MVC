@@ -6,7 +6,7 @@
 	<head>
 		<title>Cadastro de Títulos</title>
 	</head>
-	<section layout:fragment="conteudo">
+	<section layout:fragment="conteudo" th:object="${titulo}">
 		<h1 id="cadastro">Cadastro De Títulos</h1>
 
 		<!-- criando um formulario, método POST e vai ser enviado pelo action para "/titulos" -->
@@ -21,25 +21,25 @@
 				</div>
 				<div class="panel-body">
 					
-					<div class="form-group">
+					<div class="form-group" th:classappend="${#fields.hasErrors('descricao')} ? has-error">
 						<label for="descricao" class="col-sm-2 control-label">Descrição</label>
 						<div class="col-sm-7">
 							<input type="text" class="form-control" id="descricao" name="descricao"/>
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group" th:classappend="${#fields.hasErrors('dataVencimento')} ? has-error">
 						<label for="dataVencimento" class="col-sm-2 control-label">Data De Vencimento</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="dataVencimento" name="dataVencimento"/>
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group" th:classappend="${#fields.hasErrors('valor')} ? has-error">
 						<label for="valor" class="col-sm-2 control-label">Valor R$</label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control" id="valor" name="valor"/>
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group" >
 						<label for="status" class="col-sm-2 control-label">Status</label>
 						<div class= "col-sm-4">
 							<select class="form-control" name="status">
@@ -57,10 +57,7 @@
 				</div>
 			</div>
 		</form>	
+		<div layout:include="Mensagem"></div>
 		
-		<!-- criando uma alerta de aviso pelo bootstrap vamos usar uma alerta de sucesso -->
-		<div class="alert alert-sucess alert-dismissible" th:if="${!#strings.isEmpty(mensagem)}">
-  			<strong th:text="${mensagem}"></strong> 
-		</div>
 	</section>
 </html>
