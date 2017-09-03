@@ -10,6 +10,16 @@ img#icone{
     width: auto;
     height: auto;
 }
+img#icone-pesquisa{
+	max-width:30px;
+    max-height:30px;
+    padding:0px;
+}
+img#icone-titulo{
+	max-width:30px;
+    max-height:30px;
+    padding:0px;
+}
 h1#cadastro{
 	text-align: center;
 	font-family:calibre;
@@ -27,14 +37,14 @@ h1#cadastro{
 	margin:0px;
 }
 .form-horizontal{
-	margin-left:400px;
-	margin-right:400px;
+	margin:0px 400px 0px 400px auto;
 }
 
 .alert{
 	background-color:#a5d6a3;
-	margin-left:410px;
-	margin-right:410px;
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:-15px;
 	border-color: green;
 }
 

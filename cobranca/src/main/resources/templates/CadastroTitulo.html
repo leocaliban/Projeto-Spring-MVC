@@ -8,19 +8,19 @@
 	</head>
 	<section layout:fragment="conteudo">
 		<h1 id="cadastro">Cadastro De Títulos</h1>
-		<img id="icone" src="/imagens/icone.jpg"/>
-		
+
 		<!-- criando um formulario, método POST e vai ser enviado pelo action para "/titulos" -->
 		<form class="form-horizontal" method="POST" action="/titulos">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<!-- o clearfix ajuda a alinhar elementos -->
 					<div class="clearfix">
-						<h3 class="panel-title aw-titulo-panel">Novo Título</h3>
+						<h3 class="panel-title aw-titulo-panel"><img id="icone-titulo" src="/imagens/titulo.png"/> Novo Título</h3>
 						<a class="btn btn-link aw-link-panel" href="/titulos">Voltar Para Pesquisa</a>
 					</div>
 				</div>
 				<div class="panel-body">
+					
 					<div class="form-group">
 						<label for="descricao" class="col-sm-2 control-label">Descrição</label>
 						<div class="col-sm-7">

@@ -8,10 +8,11 @@
 	</head>
 	<!-- Criando a sessão que será inserida ao layout -->
 	<section layout:fragment="conteudo">
+		<h1 id="cadastro">Pesquisa De Títulos</h1>
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<div class="clearfix">
-					<h3 class="panel-title aw-titulo-panel">Pesquisa de Títulos</h3>
+					<h3 class="panel-title aw-titulo-panel"><img id="icone-pesquisa" src="/imagens/pesquisar.png"/> Pesquisar Títulos</h3>
 					<a class="btn btn-link aw-link-panel" href="/titulos/novo">Novo Título</a>
 				</div>
 			</div>
@@ -28,8 +29,22 @@
 						</tr>
 					</thead>
 					<tbody>
+						<tr th:each="titulo:${titulos}">
+							<td class="text-center" th:text="${titulo.codigo}"></td>
+							<td th:text="${titulo.descricao}"></td>
+							<td class="text-center" th:text="${{titulo.dataVencimento}}"></td>
+							<td class="text-right" th:text="|R$ ${{titulo.valor}}|"></td>
+							<td class="text-center">
+								<!-- Criando os labels de status -->
+								<span class="label" th:text="${titulo.status.descricao}"
+								th:classappend="${titulo.pendente ? 'label-danger':'label-success'}"></span>
+							</td>
+							<td class="text-center">
+							
+							</td>
+						</tr>
 						<tr>
-							<td colspan="6"> SEM TÍTULOS</td>
+							<td colspan="6" th:if="${#lists.isEmpty(titulos)}">Nenhum Título Foi Encontrado!</td>
 						</tr>
 					</tbody>
 				</table>
