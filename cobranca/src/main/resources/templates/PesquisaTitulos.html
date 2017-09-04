@@ -40,7 +40,11 @@
 								th:classappend="${titulo.pendente ? 'label-danger':'label-success'}"></span>
 							</td>
 							<td class="text-center">
-							
+								<!-- criando o botão, th@ cria um link auqe aponta para titulos/o codigo que vai buscar
+								a referencia em titulo.codigo -->
+								<a class="btn btn-link btn-xs" th:href="@{/titulos/{codigoSelecionado}(codigoSelecionado=${titulo.codigo})}">
+									<span class="glyphicon glyphicon-pencil"></span>
+								</a>
 							</td>
 						</tr>
 						<tr>

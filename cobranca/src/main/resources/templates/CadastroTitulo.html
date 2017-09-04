@@ -20,6 +20,9 @@
 					</div>
 				</div>
 				<div class="panel-body">
+					<!-- para evitar a criação de objetos repetidos na edição, o th:field vai referenciar ao th:object
+					quando for novo ele fica null, se veio de uma edição ele mantem o código -->
+					<input type="hidden" th:field="*{codigo}"/>
 					
 					<div class="form-group" th:classappend="${#fields.hasErrors('descricao')} ? has-error">
 						<label for="descricao" class="col-sm-2 control-label">Descrição</label>
