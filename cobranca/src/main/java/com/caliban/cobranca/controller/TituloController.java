@@ -64,6 +64,15 @@ public class TituloController {
 		return mv;
 	}
 	
+	//quando a requisição for DELETE o method vai recebe-la e vai ser direcionado para o metodo excluir
+	@RequestMapping(value="{codigo}", method = RequestMethod.DELETE)
+	public String excluir(@PathVariable Long codigo, RedirectAttributes attributes) {
+		titulos.delete(codigo);
+		attributes.addFlashAttribute("mensagem", "Título Excluído Com Sucesso!");
+		return "redirect:titulos";
+	}
+	
+	
 	/* os status de titulos será chamado pelo TL por aqui, que tem um array dos status*/
 	@ModelAttribute("todosStatusTitulo")
 	public List<StatusTitulo>todosStatusTitulo(){
