@@ -43,14 +43,16 @@
 							<td class="text-center">
 								<!-- criando o botão, th@ cria um link que aponta para titulos/o codigo que vai buscar
 								a referencia em titulo.codigo -->
-								<a class="btn btn-link btn-xs" th:href="@{/titulos/{codigo}(codigo=${titulo.codigo})}">
+								<a class="btn btn-link btn-xs" th:href="@{/titulos/{codigo}(codigo=${titulo.codigo})}" 
+									title="Editar" rel="tooltip" data-placement="top">
 									<span class="glyphicon glyphicon-pencil"></span>
 								</a>
 								<!-- botão excluir -->
+								<!-- guradando o valor do código e descrição para o javascript acessar quando o 
+								botão for acionado e colocando tooltip -->
 								<a class="btn btn-link btn-xs" data-toggle="modal" data-target="#confirmarExcluir"
-									th:attr="data-codigo=${titulo.codigo},data-descricao=${titulo.descricao}"><!-- guradando o valor 
-									do código e descrição 
-									para o javascript acessar quando o botão for acionado-->
+									th:attr="data-codigo=${titulo.codigo},data-descricao=${titulo.descricao}"
+									title="Excluir" rel="tooltip" data-placement="top">
 									<span class="glyphicon glyphicon-remove"></span>
 								</a>
 								

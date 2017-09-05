@@ -21,3 +21,7 @@ $('#confirmarExcluir').on('show.bs.modal',function(event){
 	//aqui procuranmos o modal-body dentro dele o span e escrevemos em html a mensagem concatenada com a descrição
 	modal.find('.modal-body span').html('Tem Certeza Que Deseja Exluir O Título <strong>'+ descricaoTitulo +'</strong>?');
 });
+
+$(function(){
+	$('[rel="tooltip"]').tooltip();
+});
