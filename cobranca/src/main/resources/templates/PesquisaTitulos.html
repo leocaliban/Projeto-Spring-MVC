@@ -9,7 +9,7 @@
 	<!-- Criando a sessão que será inserida ao layout -->
 	<section layout:fragment="conteudo">
 		<div layout:include="Mensagem"></div>
-		<h1 id="cadastro">Pesquisa De Títulos</h1>
+		<h1 id="cadastro" >Pesquisa De Títulos</h1>
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<div class="clearfix">
@@ -43,15 +43,17 @@
 							<td class="text-center">
 								<!-- criando o botão, th@ cria um link que aponta para titulos/o codigo que vai buscar
 								a referencia em titulo.codigo -->
-								<a class="btn btn-link btn-xs" th:href="@{/titulos/{codigoSelecionado}(codigoSelecionado=${titulo.codigo})}">
+								<a class="btn btn-link btn-xs" th:href="@{/titulos/{codigo}(codigo=${titulo.codigo})}">
 									<span class="glyphicon glyphicon-pencil"></span>
 								</a>
 								<!-- botão excluir -->
 								<a class="btn btn-link btn-xs" data-toggle="modal" data-target="#confirmarExcluir"
-									th:attr="data-codigo=${titulo.codigo},data-descricao=${titulo.descricao}"><!-- guradando o valor do código e descrição 
+									th:attr="data-codigo=${titulo.codigo},data-descricao=${titulo.descricao}"><!-- guradando o valor 
+									do código e descrição 
 									para o javascript acessar quando o botão for acionado-->
 									<span class="glyphicon glyphicon-remove"></span>
 								</a>
+								
 							</td>
 						</tr>
 						<tr>

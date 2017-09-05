@@ -36,7 +36,7 @@ public class TituloController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String salvar(@Validated Titulo titulo, Errors errors, RedirectAttributes attributes) {
 		if(errors.hasErrors()) {
-			return "CADASTRO_VIEW";
+			return CADASTRO_VIEW;
 		}
 		titulos.save(titulo);	
 		attributes.addFlashAttribute("mensagem", "Título Salvo Com Sucesso!");
@@ -51,7 +51,7 @@ public class TituloController {
 		return mv;
 	}
 	
-	//faz op mapeamento do codigo
+	//faz o mapeamento do codigo
 	@RequestMapping("{codigo}")
 	public ModelAndView editar(@PathVariable("codigo")Titulo titulo) {
 		/*recupera o titulo do codigo mapeado que foi convertido em long
@@ -69,7 +69,7 @@ public class TituloController {
 	public String excluir(@PathVariable Long codigo, RedirectAttributes attributes) {
 		titulos.delete(codigo);
 		attributes.addFlashAttribute("mensagem", "Título Excluído Com Sucesso!");
-		return "redirect:titulos";
+		return "redirect:/titulos";
 	}
 	
 	

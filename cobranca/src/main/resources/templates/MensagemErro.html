@@ -2,10 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
-	<!-- criando uma alerta de aviso pelo bootstrap vamos usar uma alerta de sucesso -->
-	<div class="alert alert-sucess alert-dismissible" role="alert" th:if="${!#strings.isEmpty(mensagem)}">
+      
+      <!-- criando alerta de erro -->
+	<div class="alert alert-danger alert-dismissible" role="alert" th:if="${#fields.hasAnyErrors()}">
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  		<strong th:text="${mensagem}"></strong> 
+		<div th:each="detailedError : ${#fields.detailedErrors()}">
+			<strong th:text="${detailedError.message}"></strong>
+		</div>
 	</div>
 </html>

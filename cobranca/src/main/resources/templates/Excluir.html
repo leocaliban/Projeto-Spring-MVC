@@ -6,7 +6,7 @@
     <!-- datakeyboard a janela de confirmação não fechara apertando teclas e o backtrop não vai fechar se clicar fora da janela -->  
 	<div class="modal fade" id="confirmarExcluir" tabindex="-1" data-keyboard="false" data-backdrop="static">
 		<div class="modal-dialog">
-			<form action="/titulos" method="POST">
+			<form th:attr="data-url-base='/titulos'" method="POST">
 				<input type="hidden" name="_method" value="DELETE"/>
 				<div class="modal-content">
 					<div class="modal-header">
