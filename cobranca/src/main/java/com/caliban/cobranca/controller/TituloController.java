@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
@@ -18,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.caliban.cobranca.model.StatusTitulo;
 import com.caliban.cobranca.model.Titulo;
 import com.caliban.cobranca.repository.Titulos;
+import com.caliban.cobranca.service.CadastroTituloService;
 
 @Controller
 @RequestMapping("/titulos")
@@ -26,6 +26,9 @@ public class TituloController {
 	
 	@Autowired
 	private Titulos titulos;
+	
+	@Autowired
+	private CadastroTituloService cadastroTituloService;
 	
 	@RequestMapping("/novo")
 	public ModelAndView novo() {
@@ -41,12 +44,13 @@ public class TituloController {
 		}
 		//tratamento de erro de data inválida pelo spring
 		try {
-			titulos.save(titulo);	
+			cadastroTituloService.salvar(titulo);	
 			attributes.addFlashAttribute("mensagem", "Título Salvo Com Sucesso!");
 			return "redirect:/titulos/novo";
 		}
-		catch(DataIntegrityViolationException e) {
-			errors.rejectValue("dataVencimento", null, "Formato De Data Inválido");
+		//captura a excessão lançada pelo service
+		catch(IllegalArgumentException e) {
+			errors.rejectValue("dataVencimento", null, e.getMessage());
 			return CADASTRO_VIEW;
 		}
 	}
@@ -75,7 +79,7 @@ public class TituloController {
 	//quando a requisição for DELETE o method vai recebe-la e vai ser direcionado para o metodo excluir
 	@RequestMapping(value="{codigo}", method = RequestMethod.DELETE)
 	public String excluir(@PathVariable Long codigo, RedirectAttributes attributes) {
-		titulos.delete(codigo);
+		cadastroTituloService.excluir(codigo);
 		attributes.addFlashAttribute("mensagem", "Título Excluído Com Sucesso!");
 		return "redirect:/titulos";
 	}
