@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import com.caliban.cobranca.model.StatusTitulo;
 import com.caliban.cobranca.model.Titulo;
 import com.caliban.cobranca.repository.Titulos;
 //permite que o spring possa injetar essa classe em outra para utilizar as regras de negócio
@@ -25,5 +26,14 @@ public class CadastroTituloService {
 	
 	public void excluir(Long codigo) {
 		titulos.delete(codigo);
+	}
+
+	public String receber(Long codigo) {
+		Titulo titulo = titulos.findOne(codigo);
+		titulo.setStatus(StatusTitulo.RECEBIDO);
+		titulos.save(titulo);
+		
+		return StatusTitulo.RECEBIDO.getDescricao();
+		
 	}
 }

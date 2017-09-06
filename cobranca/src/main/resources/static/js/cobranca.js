@@ -36,6 +36,20 @@ $(function(){
 		//pega a url do botao
 		var urlReceber = botaoReceber.attr('href');
 		
-		
+		var response = $.ajax({
+			url: urlReceber,
+			type: 'PUT'
+		});
+		response.done(function(e){
+			var codigoTitulo = botaoReceber.data('codigo');
+			//altera o status para sucesso contatenando com o 'e' que é a mensagem lá do método receber no controle
+			$('[data-role='+codigoTitulo+']').html('<span class="label label-success">'+e+'</span>');
+			//esconde o botaoReceber
+			botaoReceber.hide();
+		});
+		response.fail(function(e){
+			console.log(e);
+			alert('Erro Recebendo Cobrança');
+		});
 	});
 });
