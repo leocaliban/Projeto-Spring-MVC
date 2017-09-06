@@ -27,4 +27,15 @@ $(function(){
 	$('[rel="tooltip"]').tooltip();
 	//carregando a mascara de valor
 	$('.js-currency').maskMoney({decimal:',',thousands:'.',allowZero: true});
+	
+	$('.js-atualizar-status').on('click',function(event){
+		//evita o comportamento default do link que é abrir uma nova página da url formada
+		event.preventDefault();
+		//pega o evento do botão ao ser clicado
+		var botaoReceber = $(event.currentTarget);
+		//pega a url do botao
+		var urlReceber = botaoReceber.attr('href');
+		
+		
+	});
 });
