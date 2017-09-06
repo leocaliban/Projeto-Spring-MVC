@@ -22,7 +22,9 @@ $('#confirmarExcluir').on('show.bs.modal',function(event){
 	//aqui procuranmos o modal-body dentro dele o span e escrevemos em html a mensagem concatenada com a descrição
 	modal.find('.modal-body span').html('Tem Certeza Que Deseja Exluir O Título <strong>'+ descricaoTitulo +'</strong>?<br/>Valor: '+valorTitulo);
 });
-
+//essa função inicializa sempre que a página for aberta
 $(function(){
 	$('[rel="tooltip"]').tooltip();
+	//carregando a mascara de valor
+	$('.js-currency').maskMoney({decimal:',',thousands:'.',allowZero: true});
 });
