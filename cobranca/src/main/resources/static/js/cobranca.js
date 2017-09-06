@@ -6,6 +6,7 @@ $('#confirmarExcluir').on('show.bs.modal',function(event){
 	//pega o valor data no botão acionado que é o código do título
 	var codigoTitulo = button.data('codigo');
 	var descricaoTitulo = button.data('descricao');
+	var valorTitulo = button.data('valor');
 	//pega o modal como referencia de quem diusparou o evento (this)
 	var modal = $(this);
 	//busca o form do modal
@@ -19,7 +20,7 @@ $('#confirmarExcluir').on('show.bs.modal',function(event){
 	//agora no atributo do formulario concatena em action o action+codigo
 	form.attr('action',action + codigoTitulo);
 	//aqui procuranmos o modal-body dentro dele o span e escrevemos em html a mensagem concatenada com a descrição
-	modal.find('.modal-body span').html('Tem Certeza Que Deseja Exluir O Título <strong>'+ descricaoTitulo +'</strong>?');
+	modal.find('.modal-body span').html('Tem Certeza Que Deseja Exluir O Título <strong>'+ descricaoTitulo +'</strong>?<br/>Valor: '+valorTitulo);
 });
 
 $(function(){

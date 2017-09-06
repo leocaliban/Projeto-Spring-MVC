@@ -51,7 +51,7 @@
 								<!-- guradando o valor do código e descrição para o javascript acessar quando o 
 								botão for acionado e colocando tooltip -->
 								<a class="btn btn-link btn-xs" data-toggle="modal" data-target="#confirmarExcluir"
-									th:attr="data-codigo=${titulo.codigo},data-descricao=${titulo.descricao}"
+									th:attr="data-codigo=${titulo.codigo},data-descricao=${titulo.descricao},data-valor=${titulo.valor}"
 									title="Excluir" rel="tooltip" data-placement="top">
 									<span class="glyphicon glyphicon-remove"></span>
 								</a>

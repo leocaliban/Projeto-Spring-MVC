@@ -34,7 +34,10 @@
 					<div class="form-group" th:classappend="${#fields.hasErrors('dataVencimento')} ? has-error">
 						<label for="dataVencimento" class="col-sm-2 control-label">Data De Vencimento</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="dataVencimento" th:field="*{dataVencimento}"/>
+							<!-- entrada da data, com o calendario do bootstrap predefinindo formato,linguagem,autoclose,e data de hoje -->
+							<input type="text" class="form-control" id="dataVencimento" th:field="*{dataVencimento}"
+								data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-language="pt-BR"
+								data-date-autoclose="true" data-date-today-highlight="true" data-date-orientation="bottom auto"/>
 						</div>
 					</div>
 					<div class="form-group" th:classappend="${#fields.hasErrors('valor')} ? has-error">
